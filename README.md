@@ -8,11 +8,11 @@ Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/
 
 ### Demo
 
-<p style="text-align: center;">
-
-[![Demo](static/img/auto_colorizer_demo.gif)]
-
+<p align="center">
+  [Demo](static/img/auto_colorizer_demo.gif)
 </p>
+
+![Demo](static/img/auto_colorizer_demo.gif)]
 
 #### Citation
 
