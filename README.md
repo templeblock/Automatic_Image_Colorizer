@@ -6,6 +6,12 @@ Personal Project. Web development using Python (Flask). Modify the algorithm for
 
 Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/1603.08511) made by Richard Zhang, Phillip Isola, and Alexei A. Efros.
 
+### Demo
+
+[![Demo](static/img/auto_colorizer_demo.gif)]
+
+
+
 #### Citation
 
 ```
