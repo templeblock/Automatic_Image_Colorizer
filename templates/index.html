@@ -6,10 +6,11 @@
 <!-- Body -->
 {% block main %}
 <div class="container">
+
     <div class="row">
         <div class="col">
             <h1 class="text-center">Automatic Image Colorizer</h1>
-            <p>
+            <div>
                 {% with messages = get_flashed_messages() %}
                   {% if messages %}
                     <p class="flashes text-center">
@@ -19,15 +20,28 @@
                     </p>
                   {% endif %}
                 {% endwith %}
-            </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
             {% if filename %}
-                <div class='text-center'>
-                    <img src="{{ url_for('display_result', filename=filename) }}" alt="result_img">
-                </div>
+            <div>
+                <img class="img-fluid" src="{{ url_for('display_result', filename=filename) }}" alt="result_img">
+            </div>
             {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <br><br><br>
             <form action="#", method="POST", enctype=multipart/form-data>
                 <div class="form-group">
-                    <label>Upload Black & White Image to Convert to Color:</label>
+                    <label class="text-center">Upload Black & White Image to Convert to Color:</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="image" id="image"/>
                         <label class="custom-file-label" for="image">Select image...</label>
@@ -35,6 +49,8 @@
                 </div>
                 <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
             </form>
+        </div>
+        <div class="col-3">
         </div>
     </div>
 </div>
