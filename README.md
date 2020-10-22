@@ -1,12 +1,10 @@
 # Automatic Image Colorizer
 
+Function: Automatically colors black & white images 
 
+Personal Project. Web development using Python (Flask). Modify the algorithm for website integration. Deployment on AWS cloud.
 
-Function: Automatically colors black & white images
-
-Based off of pre-trianed image colorization algorithm made by Richard Zhang, Phillip Isola, and Alexei A. Efros. Their algorithm and code can be found [here](https://github.com/richzhang/colorization)
-
-My Focus: Personal Project. Deployment on AWS cloud, and web development using Python (Flask)
+Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/1603.08511) made by Richard Zhang, Phillip Isola, and Alexei A. Efros.
 
 #### Citation
 
