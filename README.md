@@ -6,6 +6,13 @@ Personal Project. Web development using Python (Flask). Modify the algorithm for
 
 Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/1603.08511) made by Richard Zhang, Phillip Isola, and Alexei A. Efros.
 
+### Instructions
+
+- Go to the website: 
+- Upload a black and white image (hint: landscapes and portraits work the best)
+- Press 'Submit' and wait for the algorithm to finish its job (bigger images take longer)
+- That's it!
+
 ### Demo
 
 
