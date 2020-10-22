@@ -8,7 +8,7 @@ Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/
 
 ### Demo
 
-<img align="center" src="static/img/auto_colorizer_demo.gif" alt="gif">
+
 
 <p align="center">
   <img src="static/img/auto_colorizer_demo.gif"/>
