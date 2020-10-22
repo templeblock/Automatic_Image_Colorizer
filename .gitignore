@@ -1,0 +1,10 @@
+*__pycache__
+venv
+/**/venv
+.DS_Store
+/**/.DS_Store
+.vscode
+.idea
+app
+flask_tutorial.py
+html_jinja_guide.html

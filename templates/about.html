@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+<!-- Title -->
+{% block title %}About{% endblock %}
+
+<!-- Body -->
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Automatic Image Colorizer</h1> <br>
+
+            <h4 class=ml-5>About</h4>
+            <p class=ml-5>Function: Automatically colors black & white images </p>
+            <p class=ml-5>Personal Project. Web development using Python (Flask). Modify the algorithm for website integration. Deployment on AWS cloud.</p>
+
+            <p class=ml-5>Based off of a pre-trianed image colorization 
+                <a href="https://github.com/richzhang/colorization">algorithm</a>
+                 made by Richard Zhang, Phillip Isola, and Alexei A. Efros.</p>
+
+            <br>
+            <h4 class=ml-5>Citation</h4>
+            <pre>
+        ```
+        @inproceedings{zhang2016colorful,
+        title={Colorful Image Colorization},
+        author={Zhang, Richard and Isola, Phillip and Efros, Alexei A},
+        booktitle={ECCV},
+        year={2016}
+        }
+
+        @article{zhang2017real,
+        title={Real-Time User-Guided Image Colorization with Learned Deep Priors},
+        author={Zhang, Richard and Zhu, Jun-Yan and Isola, Phillip and Geng, 
+            Xinyang and Lin, Angela S and Yu, Tianhe and Efros, Alexei A},
+        journal={ACM Transactions on Graphics (TOG)},
+        volume={9},
+        number={4},
+        year={2017},
+        publisher={ACM}
+        }
+        ```
+            </pre>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+        <a href="https://github.com/richzhang/colorization.git"> Algorithm Source</a>
+        © 2016 Copyright: Richard Zhang, Phillip Isola, Alexei A. Efros
+        All rights reserved.
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+
+
+
+{% endblock %}
