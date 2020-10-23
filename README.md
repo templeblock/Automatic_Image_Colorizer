@@ -6,7 +6,12 @@
 
 Automatically colors black & white images 
 
-This is a personal project with a focus on learning deep learning in computer vision, web development using Python (Flask), modifying the algorithm for website integration, and deployment on AWS cloud.
+Personal project:
+
+- Deep learning - computer vision
+- Web development using Python (Flask)
+- Modify algorithm code for website integration
+- Deployment on AWS cloud.
 
 Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/1603.08511) made by Richard Zhang, Phillip Isola, and Alexei A. Efros.
 
@@ -14,8 +19,7 @@ Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/
 
 - Go to the website: 
 - Upload a black and white image (hint: landscapes and portraits work the best)
-- Press 'Submit' and wait for the algorithm to finish its job (bigger images take longer)
-- That's it!
+- Press 'Submit' and wait for the algorithm to finish and display the fully colored image (bigger images take longer)
 
 ### Demo
 
