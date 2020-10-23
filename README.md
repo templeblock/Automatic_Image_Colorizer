@@ -6,9 +6,9 @@
 
 Automatically colors black & white images 
 
-Personal project:
+Components of the project:
 
-- Deep learning - computer vision
+- Deep learning - Computer Vision
 - Web development using Python (Flask)
 - Modify algorithm code for website integration
 - Deployment on AWS cloud.
