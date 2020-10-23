@@ -4,9 +4,9 @@
   <img src="static/img/demo_pics/demo_pic1.png"/>
 </p>
 
-Function: Automatically colors black & white images 
+Automatically colors black & white images 
 
-Personal Project. Web development using Python (Flask). Modify the algorithm for website integration. Deployment on AWS cloud.
+This is a personal project with a focus on learning deep learning in computer vision, web development using Python (Flask), modifying the algorithm for website integration, and deployment on AWS cloud.
 
 Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/1603.08511) made by Richard Zhang, Phillip Isola, and Alexei A. Efros.
 
