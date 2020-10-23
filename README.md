@@ -22,7 +22,7 @@ Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/
 
 
 <p align="center">
-  <img src="static/img/auto_colorizer_demo.gif"/>
+  <img src="static/img/auto_colorizer_demo1.gif"/>
 </p>
 
 
