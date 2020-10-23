@@ -8,10 +8,10 @@ Automatically colors black & white images
 
 Components of the project:
 
-- Deep learning - Computer Vision
+- Deep Learning - Computer Vision
 - Web development using Python (Flask)
-- Modify algorithm code for website integration
-- Deployment on AWS cloud.
+- Algorithm modification for website integration
+- Deployment on AWS cloud
 
 Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/1603.08511) made by Richard Zhang, Phillip Isola, and Alexei A. Efros.
 
