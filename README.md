@@ -1,5 +1,9 @@
 # Automatic Image Colorizer
 
+<p align="center">
+  <img src="static/img/demo_pics/demo_pic1.png"/>
+</p>
+
 Function: Automatically colors black & white images 
 
 Personal Project. Web development using Python (Flask). Modify the algorithm for website integration. Deployment on AWS cloud.
