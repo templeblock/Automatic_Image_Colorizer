@@ -1,10 +1,7 @@
 *__pycache__
+*.pyc
 venv
-/**/venv
 .DS_Store
-/**/.DS_Store
 .vscode
 .idea
-app
-flask_tutorial.py
-html_jinja_guide.html
+config.py

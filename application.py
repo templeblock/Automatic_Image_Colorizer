@@ -10,26 +10,10 @@ from colorization_algorithms.colorization_master import demo_release
 
 application = Flask(__name__)
 
-# Disable Cache - Allows saving file in same name and display it right away
-application.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+# Config
+# NEED TO RUN: export APP_SETTINGS="config...." - before running program for now (I will automate this later)
+application.config.from_object(os.environ["APP_SETTINGS"])
 
-# SECRET KEY
-# Resource: https://stackoverflow.com/questions/27287391/why-not-generate-the-secret-key-every-time-flask-starts
-secret_key='dsjiofh3289usfdjhf34789'  # Make your own secret key
-application.secret_key = bytes(secret_key, 'utf-8')
-# app.config.update(SECRET_KEY=secret_key)
-
-application.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Set file size limit to 16 megabytes (raise RequestEntityTooLarge exception if file limit exceeded)
-application.config['UPLOAD_FOLDER'] = 'static/img/uploads'
-application.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'webp'}
-
-# @app.route("/", methods=["POST", "GET"])
-# def home():  
-#     if request.method == "POST":
-#         user = request.form["file_path"]
-#         return redirect(url_for("result"))  # << Replace this with coloration func?
-#     else:
-#      return render_template('index.html')
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in application.config['ALLOWED_EXTENSIONS']
