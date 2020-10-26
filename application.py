@@ -8,20 +8,20 @@ from matplotlib.figure import Figure
 # Import colorization algorithm
 from colorization_algorithms.colorization_master import demo_release
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 # Disable Cache - Allows saving file in same name and display it right away
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+application.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # SECRET KEY
 # Resource: https://stackoverflow.com/questions/27287391/why-not-generate-the-secret-key-every-time-flask-starts
 secret_key='dsjiofh3289usfdjhf34789'  # Make your own secret key
-app.secret_key = bytes(secret_key, 'utf-8')
+application.secret_key = bytes(secret_key, 'utf-8')
 # app.config.update(SECRET_KEY=secret_key)
 
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Set file size limit to 16 megabytes (raise RequestEntityTooLarge exception if file limit exceeded)
-app.config['UPLOAD_FOLDER'] = 'static/img/uploads'
-app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'webp'}
+application.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Set file size limit to 16 megabytes (raise RequestEntityTooLarge exception if file limit exceeded)
+application.config['UPLOAD_FOLDER'] = 'static/img/uploads'
+application.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'webp'}
 
 # @app.route("/", methods=["POST", "GET"])
 # def home():  
@@ -32,9 +32,9 @@ app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'webp'}
 #      return render_template('index.html')
 
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in application.config['ALLOWED_EXTENSIONS']
 
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -54,7 +54,7 @@ def home():
         if file and allowed_file(file.filename):
             # filename = secure_filename(file.filename)
             filename = "uploaded_img.jpg"
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(application.config['UPLOAD_FOLDER'], filename))
             flash('Hint: Try landscapes and portraits for amazing results!')
             return render_template('index.html', filename=filename)
         else:
@@ -64,7 +64,7 @@ def home():
         return render_template('index.html')
 
 
-@app.route('/result/<filename>')
+@application.route('/result/<filename>')
 def display_result(filename):
     """Display/embed image on website"""
     filepath = 'static/img/uploads/' + filename
@@ -74,7 +74,7 @@ def display_result(filename):
     # return redirect(url_for('static', filename='img/uploads/' + filename))
 
 
-@app.route('/about')
+@application.route('/about')
 def about():
     return render_template("about.html")
 
@@ -92,4 +92,4 @@ def about():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
