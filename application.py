@@ -6,14 +6,14 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 
 # Import colorization algorithm
-from colorization_algorithms.colorization_master import demo_release
+from colorization_algorithms import demo_release
 
 application = Flask(__name__)
 
 # Config
 # NEED TO RUN: export APP_SETTINGS="config...." - before running program for now (I will automate this later)
-application.config.from_object(os.environ["APP_SETTINGS"])
-
+# application.config.from_object(os.environ["APP_SETTINGS"])
+application.config.from_object("config.BaseConfig")
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in application.config['ALLOWED_EXTENSIONS']
@@ -52,7 +52,7 @@ def home():
 def display_result(filename):
     """Display/embed image on website"""
     filepath = 'static/img/uploads/' + filename
-    model_dir = 'colorization_algorithms/colorization_master/models'
+    model_dir = 'colorization_algorithms/models'
     demo_release.main(filepath, model_dir)
     return redirect(url_for('static', filename='img/results_img/saved_result_final.png'), code=307)
     # return redirect(url_for('static', filename='img/uploads/' + filename))
