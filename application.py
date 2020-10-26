@@ -13,7 +13,8 @@ application = Flask(__name__)
 # Config
 # NEED TO RUN: export APP_SETTINGS="config...." - before running program for now (I will automate this later)
 # application.config.from_object(os.environ["APP_SETTINGS"])
-application.config.from_object("config.BaseConfig")
+application.config.from_object("config.ProductionConfig")
+
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in application.config['ALLOWED_EXTENSIONS']
@@ -62,18 +63,7 @@ def display_result(filename):
 def about():
     return render_template("about.html")
 
-# @app.route('/images/<cropzonekey>')
-# def images(cropzonekey):
-#     return render_template("images.html", title=cropzonekey)
-
-# @app.route('/fig/<cropzonekey>')
-# def fig(cropzonekey):
-#     fig = colorization_function(param)
-#     img = StringIO()
-#     fig.savefig(img)
-#     img.seek(0)
-#     return send_file(img, mimetype='image/png')
 
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    application.run()
