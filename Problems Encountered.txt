@@ -1,0 +1,38 @@
+Problems Encountered:
+
+- Flask - Cache problem 
+
+- AWS - Elastic Beanstalk only support up to Python 3.7. I used Python 3.8
+      - MemoryError - Instance deployment failed to install application dependencies. 
+                      The deployment failed.
+                    - Problem during EC2 installing packages in 'requirements.txt' 
+                    - Resource: https://medium.com/@deanslamajr/
+                                an-insufficient-memory-deployment-failure-d9f1cb9b5c0
+                    - Solution: Bigger EC2 Instance
+      - NGINX 
+        - client request body is buffered to a temporary file /var/lib/nginx/tmp/client_body/0000000001
+          - Solved:
+            - size of the uploaded file > memory buffer set for uploadsnginx.
+            so nginx config: client_body_buffer_size 100M;
+            Didn't solve prob. Only solved the warning message
+
+        - "upstream prematurely closed connection while reading 
+           response header from upstream"
+        - Problem during upload/submit image for algo on website
+        - Possible causes:
+          - Nginx config
+          - Backend prob: Timing out or running out of memory
+        - Tried:
+          - Increasing memory (EC2 t3.xlarge)
+          - Increase Timeout:
+            - NGINX Config
+              - sendfile        on;
+                client_max_body_size 20M;
+                keepalive_timeout  200;
+        - First Conclusion: Most likely a timeout problem from uWsgi. Let's not use EB
+        - Solution
+          - Problem with my code: Argparse in the algorithm code
+          - Argparse didn't allow 'flask run' bc of 'run' arg. Assuming AWS EC2 may run flask in a similar way, got rid of Argparse. Turns out the real problem was backend crashing bc argparse would take whatever arg AWS was giving it when init flask as an invalid input. 
+
+
+
