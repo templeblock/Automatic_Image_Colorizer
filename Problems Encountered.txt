@@ -35,4 +35,6 @@ Problems Encountered:
           - Argparse didn't allow 'flask run' bc of 'run' arg. Assuming AWS EC2 may run flask in a similar way, got rid of Argparse. Turns out the real problem was backend crashing bc argparse would take whatever arg AWS was giving it when init flask as an invalid input. 
 
 
-
+After Deployment - Bots? from all over the world were visiting my website looking for 
+                   vulnerability I suppose.
+                 - Solution: Implement reCAPTCHA on the website
