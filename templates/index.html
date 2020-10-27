@@ -21,6 +21,13 @@
                   {% endif %}
                 {% endwith %}
             </div>
+            <div>
+                <p class="text-center">
+                    {% for error in form.photo.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </p>
+            </div>
         </div>
     </div>
 
@@ -40,14 +47,33 @@
         <div class="col-6">
             <br><br><br>
             <form action="#", method="POST", enctype=multipart/form-data>
+                {{ form.csrf_token }}
+
                 <div class="form-group">
                     <label class="text-center">Upload Black & White Image to Convert to Color:</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" id="image"/>
+                        {{ form.photo(placeholder="Select image...", class="custom-file-input form-control", id="image") }}
                         <label class="custom-file-label" for="image">Select image...</label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+
+                <div>
+                    <p>
+                    {{ form.submit(class="btn btn-primary form-control") }}
+                    </p>
+
+                    <p>
+                        {% for error in form.recaptcha.errors %}
+                            {% if error == "The response parameter is missing."%}
+                            <ul>
+                                <li>{{ "Need to validate reCaptcha" }}</li>
+                            </ul>
+                            {% endif %}
+                        {% endfor %}
+                        {{ form.recaptcha(class="text-center form-control") }}
+                    </p>
+                </div>
+
             </form>
         </div>
         <div class="col-3">

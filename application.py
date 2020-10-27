@@ -7,6 +7,7 @@ from matplotlib.figure import Figure
 
 # Import colorization algorithm
 from colorization_algorithms import demo_release
+from form import PhotoForm
 
 application = Flask(__name__)
 
@@ -14,8 +15,38 @@ application = Flask(__name__)
 # NEED TO RUN: export APP_SETTINGS="config...." - before running program for now (I will automate this later)
 # application.config.from_object(os.environ["APP_SETTINGS"])
 application.config.from_object("config.ProductionConfig")
+sitekey = application.config['RECAPTCHA_PUBLIC_KEY']
 
 
+# @application.route('/', methods=['GET', 'POST'])
+# def upload():
+#     form = PhotoForm()
+    
+#     if form.validate_on_submit():
+#         filename = secure_filename(form.file.data.filename)
+#         form.file.data.save('uploads/' + filename)
+#         return redirect(url_for('upload'))
+
+#     return render_template('upload.html', form=form)
+
+@application.route('/', methods=['GET', 'POST'])
+def home():
+    form = PhotoForm()
+
+    if request.method == 'POST' and form.validate_on_submit():
+        f = form.photo.data
+        # filename = secure_filename(f.filename)
+        filename = "uploaded_img.jpg"
+        f.save(os.path.join(application.config['UPLOAD_FOLDER'], filename))
+        flash('Hint: Try landscapes and portraits for amazing results!')
+
+        return render_template('index.html', filename=filename, form=form, sitekey=sitekey)
+        # return redirect(url_for('index.html'))
+    else:
+        return render_template('index.html', form=form)
+
+
+"""
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in application.config['ALLOWED_EXTENSIONS']
 
@@ -41,13 +72,13 @@ def home():
             filename = "uploaded_img.jpg"
             file.save(os.path.join(application.config['UPLOAD_FOLDER'], filename))
             flash('Hint: Try landscapes and portraits for amazing results!')
-            return render_template('index.html', filename=filename)
+            return render_template('index.html', filename=filename, sitekey=sitekey)
         else:
             flash('Allowed image types are -> png, jpg, jpeg, webp')
             return redirect(request.url)
     else:
         return render_template('index.html')
-
+"""
 
 @application.route('/result/<filename>')
 def display_result(filename):
