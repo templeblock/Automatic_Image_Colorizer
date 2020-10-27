@@ -6,24 +6,22 @@
 
 Automatically colors black & white images 
 
-Components of the project:
+Components:
 
 - Deep Learning - Computer Vision
 - Web development using Python (Flask)
 - Algorithm modification for website integration
-- Deployment on AWS cloud
+- Deployment on AWS cloud (Elastic Beanstalk)
 
 Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/1603.08511) made by Richard Zhang, Phillip Isola, and Alexei A. Efros.
 
 ### Instructions
 
-- Go to the website: 
+- Go to the website: [Automatic Image Colorizer](http://automaticimagecolorizer.us-east-1.elasticbeanstalk.com)
 - Upload a black and white image (hint: landscapes and portraits work the best)
 - Press 'Submit' and wait for the algorithm to finish and display the fully colored image (bigger images take longer)
 
 ### Demo
-
-
 
 <p align="center">
   <img src="static/img/auto_colorizer_demo1.gif"/>
