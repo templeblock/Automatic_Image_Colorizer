@@ -65,9 +65,7 @@
                     <p>
                         {% for error in form.recaptcha.errors %}
                             {% if error == "The response parameter is missing."%}
-                            <ul>
-                                <li>{{ "Need to validate reCaptcha" }}</li>
-                            </ul>
+                                {{ "Need to validate reCAPTCHA" }}
                             {% endif %}
                         {% endfor %}
                         {{ form.recaptcha(class="text-center form-control") }}
