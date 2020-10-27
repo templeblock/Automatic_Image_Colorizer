@@ -17,7 +17,7 @@ Based off of a pre-trained image colorization [algorithm](https://arxiv.org/abs/
 
 ### Instructions
 
-- Go to the website: [Automatic Image Colorizer](http://automaticimagecolorizer.us-east-1.elasticbeanstalk.com)
+- Go to the website: [Automatic Image Colorizer](http://automaticimagecolorizer1028.us-east-1.elasticbeanstalk.com)
 - Upload a black and white image (hint: landscapes and portraits work the best)
 - Press 'Submit' and wait for the algorithm to finish and display the fully colored image (bigger images take longer)
 
