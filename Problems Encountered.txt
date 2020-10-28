@@ -1,6 +1,8 @@
 Problems Encountered:
 
-- Flask - Cache problem 
+- Flask - Cache problem - Saving img in same name to save space prevents displaying 
+                          the new img. Keeps displaying old img from cache instead.
+        - Solution: Turn off cache for flask
 
 - AWS - Elastic Beanstalk only support up to Python 3.7. I used Python 3.8
       - MemoryError - Instance deployment failed to install application dependencies. 
@@ -14,10 +16,10 @@ Problems Encountered:
           - Solved:
             - size of the uploaded file > memory buffer set for uploadsnginx.
             so nginx config: client_body_buffer_size 100M;
+            at .ebextensions/nginx/conf.d/myconf.conf of proj dir
             Didn't solve prob. Only solved the warning message
-
-        - "upstream prematurely closed connection while reading 
-           response header from upstream"
+      - Backend Crashing in deployment - "upstream prematurely closed connection 
+                                         while reading response header from upstream"
         - Problem during upload/submit image for algo on website
         - Possible causes:
           - Nginx config
