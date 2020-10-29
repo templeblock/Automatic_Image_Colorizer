@@ -35,6 +35,26 @@ Problems Encountered:
         - Solution
           - Problem with my code: Argparse in the algorithm code
           - Argparse didn't allow 'flask run' bc of 'run' arg. Assuming AWS EC2 may run flask in a similar way, got rid of Argparse. Turns out the real problem was backend crashing bc argparse would take whatever arg AWS was giving it when init flask as an invalid input. 
+      - "413 Request Entity Too Large" 
+        - Problem occurs when attempting to load image larger than 1M
+        - A lot of the solutions online are outdated. AWS Documentation is horrible. 
+          Nothing works. Need to update nginx config file. I tried updating it at:
+          - .ebextensions/nginx/conf.d/myconf.conf
+            - client_max_body_size 10M;
+          - .ebextensions/nginx/nginx.conf
+            - client_max_body_size 10M;
+          - .ebextensions/nginx.config
+            - files:
+                  "/etc/nginx/conf.d/proxy.conf":
+                    mode: "000755"
+                    owner: root
+                    group: root
+                    content: |
+                      client_body_buffer_size 10M;
+                      client_max_body_size 10M;
+          - Solution was here (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-linux-extend.html - Click 'Reverse Proxy configuration' and scroll down to
+            'Configuring nginx'
+            - .platform/nginx/conf.d/myconf.conf - client_max_body_size 10M;
 
 
 After Deployment - Bots? from all over the world were visiting my website looking for 
